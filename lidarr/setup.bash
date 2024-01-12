@@ -125,7 +125,7 @@ curl https://raw.githubusercontent.com/RandomNinjaAtk/arr-scripts/main/lidarr/Be
 echo "Done"
 
 echo "Download Youtube Music Downloader script..."
-curl https://raw.githubusercontent.com/HughBone/arr-scripts/main/lidarr/ytdownload.py -o /custom-services.d/ytdownload.py
+curl https://raw.githubusercontent.com/HughBone/arr-scripts/main/lidarr/ytdownload.py -o /config/extended/ytdownload.py
 echo "Done"
 
 if [ ! -f /config/extended/beets-genre-whitelist.txt ]; then
