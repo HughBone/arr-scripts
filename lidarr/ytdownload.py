@@ -1,9 +1,12 @@
+#!/usr/bin/python3
 import time
 import sys
 import os
 import subprocess
 from ytmusicapi import YTMusic
 
+if len(sys.argv) < 2:
+    exit()
 
 album_year = str(sys.argv[1])
 album_title = str(sys.argv[2])
