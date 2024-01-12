@@ -535,7 +535,7 @@ DownloadProcess () {
 			fi
 		done
 
-		downloadCount=$(find "$audioPath"/incomplete/ -type f -regex ".*/.*\.\(flac\|m4a\|mp3\)" | wc -l)
+		downloadCount=$(find "$audioPath"/incomplete/ -type f -regex ".*/.*\.\(flac\|m4a\|mp3\|opus\)" | wc -l)
 		if [ "$downloadCount" -ne "$5" ]; then
 			log "$page :: $wantedAlbumListSource :: $processNumber of $wantedListAlbumTotal :: $lidarrArtistName :: $lidarrAlbumTitle :: $lidarrAlbumType :: ERROR :: download failed, missing tracks..."
 			completedVerification="false"
@@ -562,13 +562,13 @@ DownloadProcess () {
 	find "$audioPath/incomplete" -type f -exec mv "{}" "$audioPath"/incomplete/ \; 2>/dev/null
 	find $audioPath/incomplete/ -type d -mindepth 1 -maxdepth 1 -exec rm -rf {} \; 2>/dev/null
 
-	downloadCount=$(find "$audioPath"/incomplete/ -type f -regex ".*/.*\.\(flac\|m4a\|mp3\)" | wc -l)
+	downloadCount=$(find "$audioPath"/incomplete/ -type f -regex ".*/.*\.\(flac\|m4a\|mp3\|opus\)" | wc -l)
 	if [ "$downloadCount" -gt "0" ]; then
 		# Check download for required quality (checks based on file extension)
 		DownloadQualityCheck "$audioPath/incomplete" "$2"
 	fi
 	
-	downloadCount=$(find "$audioPath"/incomplete/ -type f -regex ".*/.*\.\(flac\|m4a\|mp3\)" | wc -l)
+	downloadCount=$(find "$audioPath"/incomplete/ -type f -regex ".*/.*\.\(flac\|m4a\|mp3\|opus\)" | wc -l)
 	if [ "$downloadCount" -ne "$5" ]; then
 		log "$page :: $wantedAlbumListSource :: $processNumber of $wantedListAlbumTotal :: $lidarrArtistName :: $lidarrAlbumTitle :: $lidarrAlbumType :: ERROR :: All download Attempts failed..."
 		log "$page :: $wantedAlbumListSource :: $processNumber of $wantedListAlbumTotal :: $lidarrArtistName :: $lidarrAlbumTitle :: $lidarrAlbumType :: Logging $1 as failed download..."
