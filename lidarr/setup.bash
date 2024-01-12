@@ -68,7 +68,7 @@ curl https://raw.githubusercontent.com/RandomNinjaAtk/arr-scripts/main/lidarr/Ti
 echo "Done"
 
 echo "Download Audio service..."
-curl https://raw.githubusercontent.com/RandomNinjaAtk/arr-scripts/main/lidarr/Audio.service.bash -o /custom-services.d/Audio
+curl https://raw.githubusercontent.com/HughBone/arr-scripts/main/lidarr/Audio.service.bash -o /custom-services.d/Audio
 echo "Done"
 
 echo "Download AutoArtistAdder service..."
