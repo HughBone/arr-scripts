@@ -155,7 +155,7 @@ Configuration () {
 }
 
 DownloadClientFreyr () {
-	python3 /config/extended/ytdownload.py $3 "$deezerAlbumTitle" "$lidarrArtistName" "$audioPath/incomplete" | tee -a "/config/logs/$logFileName"
+	python3 /config/extended/ytdownload.py $3 \"$deezerAlbumTitle\" \"$lidarrArtistName\" $audioPath/incomplete | tee -a "/config/logs/$logFileName"
 
 	# freyr --no-bar --no-net-check -d $audioPath/incomplete deezer:album:$1 2>&1 | tee -a "/config/logs/$logFileName"
  	# # Resolve issue 94
