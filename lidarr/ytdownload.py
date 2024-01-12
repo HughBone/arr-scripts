@@ -1,7 +1,7 @@
 import time
 import sys
 import os
-from subprocess
+import subprocess
 from ytmusicapi import YTMusic
 
 
