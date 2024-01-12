@@ -5,10 +5,10 @@ import subprocess
 from ytmusicapi import YTMusic
 
 
-album_year = str(sys.argv[0])
-album_title = str(sys.argv[1])
-artist_name = str(sys.argv[2])
-audio_path = sys.argv[3]
+album_year = str(sys.argv[1])
+album_title = str(sys.argv[2])
+artist_name = str(sys.argv[3])
+audio_path = sys.argv[4]
 # album_year = "2022"
 # album_title = "I HAD TO DIE TO SURVIVE"
 # artist_name = "ghost and pals"
