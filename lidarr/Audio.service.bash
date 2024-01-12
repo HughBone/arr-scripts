@@ -155,8 +155,10 @@ Configuration () {
 }
 
 DownloadClientFreyr () {
-	freyr --no-bar --no-net-check -d $audioPath/incomplete deezer:album:$1 2>&1 | tee -a "/config/logs/$logFileName"
- 	# Resolve issue 94
+	python3 ytdownload.py $3 $4 $lidarrArtistName $audioPath/incomplete | tee -a "/config/logs/$logFileName"
+
+	# freyr --no-bar --no-net-check -d $audioPath/incomplete deezer:album:$1 2>&1 | tee -a "/config/logs/$logFileName"
+ 	# # Resolve issue 94
  	if [ -d /root/.cache/FreyrCLI ]; then
   		rm -rf  /root/.cache/FreyrCLI/*
         fi
@@ -455,7 +457,7 @@ DownloadProcess () {
 		if [ "$2" == "DEEZER" ]; then
 			
 			if [ -z $arlToken ]; then
-				DownloadClientFreyr $1
+				DownloadClientFreyr $1 $2 $3 $4
 			else
 				deemix -b $deemixQuality -p "$audioPath"/incomplete "https://www.deezer.com/album/$1" 2>&1 | tee -a "/config/logs/$logFileName"
 			fi
@@ -492,7 +494,7 @@ DownloadProcess () {
 		if [ "$2" == "DEEZER" ]; then
   			if [ $deemixFail -eq $failedDownloadAttemptThreshold ]; then
 				if [ -z $arlToken ]; then
-					DownloadClientFreyr $1
+					DownloadClientFreyr $1 $2 $3 $4
 				else
 					deemix -b $deemixQuality -p "$audioPath"/incomplete "https://www.deezer.com/album/$1" 2>&1 | tee -a "/config/logs/$logFileName"
 				fi

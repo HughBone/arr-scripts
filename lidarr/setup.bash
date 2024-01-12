@@ -26,6 +26,7 @@ echo "*** install beets ***" && \
 apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community beets && \
 echo "*** install python packages ***" && \
 pip install --upgrade --no-cache-dir \
+  ytmusicapi \
   yq \
   pyacoustid \
   requests \
@@ -121,6 +122,10 @@ echo "Done"
 
 echo "Download Beets Tagger script..."
 curl https://raw.githubusercontent.com/RandomNinjaAtk/arr-scripts/main/lidarr/BeetsTagger.bash -o /config/extended/BeetsTagger.bash
+echo "Done"
+
+echo "Download Youtube Music Downloader script..."
+curl https://raw.githubusercontent.com/HughBone/arr-scripts/main/lidarr/ytdownload.py -o /custom-services.d/ytdownload.py
 echo "Done"
 
 if [ ! -f /config/extended/beets-genre-whitelist.txt ]; then
