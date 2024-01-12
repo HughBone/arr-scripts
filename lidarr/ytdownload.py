@@ -5,7 +5,7 @@ import os
 import subprocess
 from ytmusicapi import YTMusic
 
-if len(sys.argv) < 2:
+if len(sys.argv) < 5:
     exit()
 
 album_year = str(sys.argv[1])
